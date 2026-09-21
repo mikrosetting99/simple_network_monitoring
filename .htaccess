@@ -1,0 +1,15 @@
+# Pembatasan akses level jaringan (FR-13). Sesuaikan dengan LAN/VPN Anda.
+# Jangan port-forward aplikasi ini ke internet: tidak ada login.
+<IfModule mod_authz_core.c>
+    Require ip 127.0.0.1 ::1 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+</IfModule>
+
+# Kode, konfigurasi, dan data tidak boleh dibuka lewat web.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(app|cron|storage|database)(/|$) - [F,L]
+    RewriteRule ^$ public/ [R=302,L]
+</IfModule>
+<FilesMatch "^(config(\.sample)?\.php|\.gitignore)$">
+    Require all denied
+</FilesMatch>
