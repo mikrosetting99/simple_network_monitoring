@@ -4,6 +4,8 @@ Implementasi PRD v1: ping terjadwal ke daftar IP, dashboard status, riwayat keja
 
 ## Instalasi
 
+> Memakai Laragon? Ikuti [tutorial instalasi Laragon](docs/INSTALASI_LARAGON.md). Bagian di bawah untuk XAMPP.
+
 1. Salin folder ini ke `C:\xampp\htdocs\monitoring` (Linux: `/opt/lampp/htdocs/monitoring`).
 2. Buka phpMyAdmin → Import `database/schema.sql` (membuat database `db_monitoring`).
 3. Salin `config.sample.php` menjadi `config.php`, sesuaikan kredensial DB.
